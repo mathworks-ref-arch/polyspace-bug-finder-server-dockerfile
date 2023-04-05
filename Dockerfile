@@ -31,7 +31,7 @@ RUN wget -q https://www.mathworks.com/mpm/glnxa64/mpm && \
     rm -f mpm /tmp/mathworks_root.log && \
     ln -s /opt/matlab/polyspace/bin/polyspace* /usr/local/bin/
 
-# Add "matlab" user and grant sudo permission.
+# Add a "polyspace" user and grant sudo permission.
 RUN adduser --shell /bin/bash --disabled-password --gecos "" polyspace && \
     echo "polyspace ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/polyspace && \
     chmod 0440 /etc/sudoers.d/polyspace
