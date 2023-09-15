@@ -23,14 +23,14 @@ git clone https://github.com/mathworks-ref-arch/polyspace-bug-finder-server-dock
 cd polyspace-bug-finder-server-dockerfile
 
 # Build container with a name and tag of your choice.
-docker build . -t polyspace-bug-finder-server:r2023a
+docker build . -t polyspace-bug-finder-server:r2023b
 ```
 The `build` command looks for the `Dockerfile` in the current directory and builds an image with the name and tag specified by the `-t` option.<br>
 If you list the docker images and filter for `polyspace*` after the `docker build` command completes, you see the polyspace-bug-finder-server image.
 ```bash
 $ docker images -f=reference=polyspace*
 REPOSITORY         TAG       IMAGE ID       CREATED          SIZE
-polyspace-bug-finder-server   r2023a    9651d8b0d1d0   34 seconds ago   3.85GB
+polyspace-bug-finder-server   r2023b    9256e96040bb   About a minute ago   4.18GB
 ```
 
 
@@ -53,7 +53,7 @@ The following `docker run` command:
 # Run the container to analyze the test file.
 docker run --rm \
 -e MLM_LICENSE_FILE=27000@MyServerName.example.com \ 
--v "$(pwd):/work" polyspace-bug-finder-server:r2023a \ 
+-v "$(pwd):/work" polyspace-bug-finder-server:r2023b \ 
  polyspace-bug-finder-server -sources /work/src/simple_niv.c -results-dir /work/ps_results
 ```
 
@@ -65,7 +65,7 @@ The [Dockerfile](https://github.com/mathworks-ref-arch/polyspace-bug-finder-serv
 
 | Argument Name | Default value | Description |
 |---|---|---|
-| MATLAB_RELEASE | r2023a | The Polyspace Server release you want to install. Must be lower-case, for example: `r2022b`.|
+| MATLAB_RELEASE | r2023b | The Polyspace Server release you want to install. Must be lower-case, for example: `r2022b`.|
 | [LICENSE_SERVER](#build-an-image-with-license-server-information) | *unset* | The port and hostname of the machine that is running the Network License Manager, using the `port@hostname` syntax. For example: `27000@MyServerName`. |
 
 To customize the docker image, use these arguments with the `docker build` command or edit the default values of these arguments directly in the [Dockerfile](https://github.com/mathworks-ref-arch/polyspace-bug-finder-server-dockerfile/blob/main/Dockerfile).
@@ -78,11 +78,11 @@ if you include the [license manager information](#obtain-license-manager-informa
 
 ```bash
 # Build container and specify LICENSE_SERVER variable
-docker build -t polyspace-bug-finder-server:r2023a --build-arg LICENSE_SERVER=27000@MyServerName.example.com .
+docker build -t polyspace-bug-finder-server:r2023b --build-arg LICENSE_SERVER=27000@MyServerName.example.com .
 
 # Run the container without specifying the MLM_LICENSE_FILE variable
 docker run --rm \
--v "$(pwd):/work" polyspace-bug-finder-server:r2023a \ 
+-v "$(pwd):/work" polyspace-bug-finder-server:r2023b \ 
 polyspace-bug-finder-server -sources /work/src/simple_niv.c -results-dir /work/ps_results
 ```
 > **Note**: If you specify the value of the LICENSE_SERVER variable in the Dockerfile, you can omit it when running the `docker build` command.
@@ -119,13 +119,13 @@ To use the `network.lic` file instead:
     You do not need to specify the `LICENSE_SERVER` build variable when running the `docker build` command:
     ```bash
     # Example
-    docker build -t polyspace-bug-finder-server:r2023a .
+    docker build -t polyspace-bug-finder-server:r2023b .
     ```
 ## Remove Docker Image
 
 While docker cleans up containers on exit, the docker image persists in your file system until you explicitely delete it. To delete a docker image, run the `docker image rm` command and specify the name of the container. For instance:
 ```bash
-docker image rm polyspace-bug-finder-server:r2023a
+docker image rm polyspace-bug-finder-server:r2023b
 ```
 
 ---
