@@ -1,11 +1,11 @@
-# Copyright 2022-2024 The MathWorks, Inc.
+# Copyright 2022-2025 The MathWorks, Inc.
 
 # To specify which MATLAB release to install in the container, edit the value of the MATLAB_RELEASE argument.
 # Use lower case to specify the release, for example: ARG MATLAB_RELEASE=r2022b
-ARG MATLAB_RELEASE=R2024b
+ARG MATLAB_RELEASE=R2025a
 
-# Build on top of Ubuntu22.04
-FROM ubuntu:22.04
+# Build on top of Ubuntu24.04
+FROM ubuntu:24.04
 
 # Declare the global argument to use at the current build stage
 ARG MATLAB_RELEASE
@@ -14,7 +14,7 @@ ARG MATLAB_RELEASE
 ENV DEBIAN_FRONTEND="noninteractive" TZ="Etc/UTC"
 RUN apt-get update && apt-get install --no-install-recommends -y \
     ca-certificates \
-    libasound2 \
+    libasound2t64 \
     libc6 \
     libcairo-gobject2 \
     libcairo2 \

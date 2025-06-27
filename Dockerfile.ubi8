@@ -1,8 +1,8 @@
-# Copyright 2022-2024 The MathWorks, Inc.
+# Copyright 2022-2025 The MathWorks, Inc.
 
 # To specify which MATLAB release to install in the container, edit the value of the MATLAB_RELEASE argument.
 # Use lower case to specify the release, for example: ARG MATLAB_RELEASE=r2022b
-ARG MATLAB_RELEASE=R2024b
+ARG MATLAB_RELEASE=R2025a
 
 # Build on top of UBI 8
 FROM registry.access.redhat.com/ubi8/ubi:latest
