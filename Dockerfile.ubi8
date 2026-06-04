@@ -1,4 +1,4 @@
-# Copyright 2022-2025 The MathWorks, Inc.
+# Copyright 2022-2026 The MathWorks, Inc.
 
 # To specify which MATLAB release to install in the container, edit the value of the MATLAB_RELEASE argument.
 # Use lower case to specify the release, for example: ARG MATLAB_RELEASE=r2022b
@@ -55,6 +55,7 @@ RUN yum install --disableplugin=subscription-manager -y \
         wget.x86_64 \
         unzip.x86_64 \
         sudo.x86_64 \
+        libatomic.x86_64 \
         ca-certificates && \
     yum --disableplugin=subscription-manager clean all -y
 
