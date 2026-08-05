@@ -37,12 +37,14 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     libpangocairo-1.0-0 \
     libpangoft2-1.0-0 \
     libsndfile1 \
+    libtirpc3t64 \
     libuuid1 \
     libwayland-client0 \
     libxcomposite1 \
     libxcursor1 \
     libxdamage1 \
     libxfixes3 \
+    libxfont2 \
     libxft2 \
     libxinerama1 \
     libxrandr2 \
@@ -51,6 +53,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     libxxf86vm1 \
     locales \
     locales-all \
+    x11-xkb-utils \
     zlib1g
 
 # Install mpm dependencies
